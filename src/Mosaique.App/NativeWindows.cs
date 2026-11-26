@@ -13,6 +13,9 @@ namespace Mosaique.App
         internal const uint KeepFocus = 0x0010 | 0x0200; // SWP_NOACTIVATE | SWP_NOOWNERZORDER
         private const int ExtendedFrameBounds = 9;
         private const int Restore = 9;
+        private const int ShowMinimizedWithoutActivation = 7;
+        private const int ShowWithoutActivation = 4;
+        private const uint ForegroundEvent = 0x0003;
 
         [StructLayout(LayoutKind.Sequential)]
         internal struct Rect
@@ -35,6 +38,28 @@ namespace Mosaique.App
             if (IsIconic(window) || IsZoomed(window))
                 ShowWindow(window, Restore);
         }
+
+        internal static void SetGroupMinimized(IntPtr window, bool minimize)
+        {
+            if (IsWindow(window) && IsIconic(window) != minimize)
+                ShowWindow(window, minimize ? ShowMinimizedWithoutActivation : ShowWithoutActivation);
+        }
+
+        internal static IntPtr WatchForeground(ForegroundCallback callback) =>
+            SetWinEventHook(ForegroundEvent, ForegroundEvent, IntPtr.Zero, callback, 0, 0, 0);
+
+        internal delegate void ForegroundCallback(IntPtr hook, uint eventType, IntPtr window,
+            int objectId, int childId, uint eventThread, uint eventTime);
+
+        [DllImport("user32.dll")]
+        private static extern IntPtr SetWinEventHook(uint eventMin, uint eventMax, IntPtr module,
+            ForegroundCallback callback, uint processId, uint threadId, uint flags);
+
+        [DllImport("user32.dll")]
+        internal static extern bool UnhookWinEvent(IntPtr hook);
+
+        [DllImport("user32.dll")]
+        internal static extern IntPtr GetForegroundWindow();
 
         internal static Rectangle CompensateBorders(IntPtr window, Rectangle cell)
         {
