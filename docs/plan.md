@@ -7,7 +7,7 @@ Chaque tranche se termine par une PR, vérifiée par la CI, relue par Claude, fu
 | 0 | Modèle de projet + CI Windows (build net48 + tests) | CI verte sur une solution vide | Claude (la CI appartient au propriétaire) |
 | 1 | `Mosaique.Core` : calcul de grille + compensation des bordures + tests d'acceptation 1 à 4 | `dotnet test` vert (Linux et CI) | Codex |
 | 2 | `Mosaique.App` : cadre + « Ajouter tous les explorateurs » + suivi au déplacement + ordre d'affichage | CI verte + exe téléchargeable + ton essai : déplacement ≥ 4/5 | Codex |
-| 3 | Redimensionnement fluide (50 ms + ajustement au relâchement) ; réduire/restaurer/agrandir | CI + ton essai : redimensionnement ≥ 3/5 | Codex |
+| 3 | Redimensionnement fluide (50 ms + ajustement au relâchement) ; réduire/restaurer/agrandir le groupe ; clic dans une fenêtre : l’ensemble passe devant et le cadre reste derrière (étape 7 de la spec) | CI + ton essai : redimensionnement ≥ 3/5, ordre du groupe au clic et transitions du cadre | Codex |
 | 4 | Fenêtre fermée → grille recalculée ; boîte de fermeture (tests 5 à 7) | CI + ton essai des 3 choix | Codex |
 | 5 | « Ajouter une fenêtre » par clic (toute application) ; refus propre des fenêtres admin | CI + ton essai avec Explorateur, navigateur, VS Code | Codex |
 

@@ -1,7 +1,7 @@
 # Relais
 
-But — Ajouter jusqu’à quatre fenêtres de l’Explorateur et les déplacer avec le cadre.
-État — Le menu regroupe les fenêtres CabinetWClass. Le suivi compense les bordures invisibles et replace le cadre derrière les fenêtres pendant le glisser.
-Preuve — Les six tests Core réussissent et Mosaique.exe compile en Release depuis Linux.
-Incertitude — L’ordre d’affichage et la fluidité réelle restent à essayer sur Windows 11.
-Prochaine action — Relire la PR, vérifier la CI Windows et faire l’essai de déplacement de dix secondes.
+But — Adapter le groupe au redimensionnement et aux changements d’état du cadre, et le faire passer devant au clic.
+État — La grille est recalculée au plus toutes les 50 ms pendant le geste, puis à la taille finale. L’activation d’un membre remet le cadre derrière le groupe.
+Preuve — Les 11 nouveaux cas échouent avant l’implémentation. Ensuite, les 17 tests Core réussissent et Mosaique.exe compile en Release.
+Incertitude — La fluidité, la géométrie finale, les transitions et l’ordre réel des fenêtres restent à essayer sur Windows 11.
+Prochaine action — Relire la PR, contrôler la CI et essayer le redimensionnement, le clic, la réduction, la restauration et l’agrandissement.
