@@ -30,6 +30,16 @@ public class GridLayoutTests
     }
 
     [Fact]
+    public void Deux_fenetres_occupent_deux_cases_cote_a_cote()
+    {
+        Assert.Equal(new[]
+        {
+            new Rectangle(100, 100, 600, 800),
+            new Rectangle(700, 100, 600, 800)
+        }, GridLayout.Calculate(Cadre, 2));
+    }
+
+    [Fact]
     public void Une_fenetre_occupe_tout_le_cadre()
     {
         Assert.Equal(new[] { Cadre }, GridLayout.Calculate(Cadre, 1));

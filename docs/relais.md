@@ -1,7 +1,7 @@
 # Relais
 
-But — Livrer le calcul de grille et la compensation des bordures de la tranche 1.
-État — Mosaique.Core calcule les cases et compense les bordures par arithmétique pure.
-Preuve — Les quatre nouveaux tests ont échoué avant l’implémentation, puis les cinq tests ont réussi avec `dotnet test tests/Mosaique.Core.Tests -c Release` sous Linux.
-Incertitude — La vérification Windows dépend de la CI. L’intégration à l’application relève de la tranche 2.
-Prochaine action — Relire la PR de la tranche 1 et contrôler la CI avant la fusion par le propriétaire.
+But — Ajouter jusqu’à quatre fenêtres de l’Explorateur et les déplacer avec le cadre.
+État — Le menu regroupe les fenêtres CabinetWClass. Le suivi compense les bordures invisibles et replace le cadre derrière les fenêtres pendant le glisser.
+Preuve — Les six tests Core réussissent et Mosaique.exe compile en Release depuis Linux.
+Incertitude — L’ordre d’affichage et la fluidité réelle restent à essayer sur Windows 11.
+Prochaine action — Relire la PR, vérifier la CI Windows et faire l’essai de déplacement de dix secondes.
