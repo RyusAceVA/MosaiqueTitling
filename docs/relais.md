@@ -1,7 +1,7 @@
 # Relais
 
-But — Squelette du projet (tranche 0) : solution, CI Windows, modèle de projet.
-État — Core (netstandard2.0), tests (net8.0, xunit) et App (net48 WinForms, cadre vide) créés.
-Preuve — CI GitHub Actions sur windows-latest (tests + build + exe en artefact).
-Incertitude — Le build n'a pas pu être lancé hors CI (pas de SDK .NET dans la session de relecture).
-Prochaine action — Tranche 1 (Codex) : tests d'acceptation 1 à 4 de docs/spec.md puis calcul de grille dans Mosaique.Core.
+But — Ajouter jusqu’à quatre fenêtres de l’Explorateur et les déplacer avec le cadre.
+État — Le menu regroupe les fenêtres CabinetWClass. Le suivi compense les bordures invisibles et replace le cadre derrière les fenêtres pendant le glisser.
+Preuve — Les six tests Core réussissent et Mosaique.exe compile en Release depuis Linux.
+Incertitude — L’ordre d’affichage et la fluidité réelle restent à essayer sur Windows 11.
+Prochaine action — Relire la PR, vérifier la CI Windows et faire l’essai de déplacement de dix secondes.
