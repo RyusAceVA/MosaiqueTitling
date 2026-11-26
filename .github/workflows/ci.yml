@@ -1,0 +1,24 @@
+# CI du propriétaire. Windows : les minutes comptent double sur un dépôt privé gratuit, rester court.
+name: ci
+on:
+  pull_request:
+  push:
+    branches: [main]
+permissions:
+  contents: read
+jobs:
+  verifier:
+    runs-on: windows-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 8.0.x
+      - run: dotnet test tests/Mosaique.Core.Tests -c Release
+      - run: dotnet build src/Mosaique.App -c Release
+      - uses: actions/upload-artifact@v4
+        with:
+          name: Mosaique-exe
+          path: src/Mosaique.App/bin/Release/net48/
+          retention-days: 14
